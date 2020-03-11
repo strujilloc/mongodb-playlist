@@ -1,12 +1,23 @@
 const mongoose = require("mongoose");
 
-// connect ot mongodb
-mongoose.connect("mongodb://localhost/testaroo");
+// ES6 promises looks is already deprecade
+mongoose.Promise = global.Promise;
 
-mongoose.connection
-  .once("open", function() {
-    console.log("connection has been made, now make fireworks...");
-  })
-  .on("error", function(error) {
-    console.log("connection error", error);
-  });
+// Connect to the DB bed¥fire tests run
+before(done => {
+  // connect ot mongodb
+  // mongoose.connect("mongodb://localhost/testaroo");
+  mongoose.connect("mongodb://localhost:27017/testaroo", {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+  }); // updated connection config
+
+  mongoose.connection
+    .once("open", function() {
+      console.log("connection has been made, now make fireworks...");
+      done();
+    })
+    .on("error", function(error) {
+      console.log("connection error", error);
+    });
+});

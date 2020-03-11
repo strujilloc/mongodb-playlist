@@ -4,7 +4,7 @@
   "description": "Course files for the MongoDB tutorials playlist. Each branch in this repository corresponds to the ending code of a particular video.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
@@ -16,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/strujilloc/mongodb-playlist/issues"
   },
-  "homepage": "https://github.com/strujilloc/mongodb-playlist#readme"
+  "homepage": "https://github.com/strujilloc/mongodb-playlist#readme",
+  "dependencies": {
+    "mocha": "^7.1.0",
+    "mongoose": "^5.9.4"
+  }
 }
